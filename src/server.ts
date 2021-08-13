@@ -11,6 +11,7 @@ app.use(express.json())
 app.use(router)
 
 app.use((err: Error, request: Request, response: Response, next: NextFunction)=>{
+  // err instanceof Error - server para capturar todos os "throw new Error()"
   if(err instanceof Error){
     return response.status(400).json({
       error: err.message
